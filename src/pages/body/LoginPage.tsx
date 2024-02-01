@@ -3,6 +3,7 @@ import AxiosReq from "../../utils/apis";
 import {IRegInputs, IRegUser} from "../../assets/interfaces/register.interface";
 import BtnGreen from "../../components/buttons/BtnGreen";
 import {Link, useNavigate} from "react-router-dom";
+import {USER} from "../../routes/routes.list";
 
 const LoginPage = (): JSX.Element => {
 
@@ -26,7 +27,7 @@ const LoginPage = (): JSX.Element => {
             // @ts-ignore
             sessionStorage.setItem("userToken", userToken.data.userToken);
 
-            navigate("/user");
+            navigate(USER);
         } catch (error) {
             console.error(error);
             sessionStorage.removeItem("userToken");

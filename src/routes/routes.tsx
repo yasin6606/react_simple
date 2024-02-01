@@ -1,6 +1,7 @@
 import {RoutesInterface} from "../assets/interfaces/routes"
 import {lazy} from "react";
 import makeFullPath from "../utils/makeFullPath";
+import {STAR, ROOT, LOGIN, REGISTER, USER, ACCESS_DENIED} from "./routes.list";
 
 const MainPage = lazy(() => import("../pages/MainPage"));
 const LoginPage = lazy(() => import("../pages/body/LoginPage"));
@@ -11,38 +12,38 @@ const NotFoundPage = lazy(() => import("../pages/dist/NotFoundPage"));
 
 const routeItems: Array<RoutesInterface> = [
     {
-        path: makeFullPath("/"),
+        path: makeFullPath(ROOT),
         element: <MainPage/>,
-        redirect: makeFullPath("/"),
+        redirect: makeFullPath(ROOT),
         caseSensitive: false,
         needAuthenticating: false,
         children: [
             {
-                path: makeFullPath("/login"),
+                path: makeFullPath(LOGIN),
                 element: <LoginPage/>
             },
             {
-                path: makeFullPath("/register"),
+                path: makeFullPath(REGISTER),
                 element: <RegisterPage/>
             },
             {
-                path: makeFullPath("/user"),
+                path: makeFullPath(USER),
                 element: <UserDashboardPage/>,
                 needAuthenticating: true
             }
         ]
     },
     {
-        path: makeFullPath("/404"),
+        path: makeFullPath(ACCESS_DENIED),
         element: <AccessDeniedPage/>,
-        redirect: makeFullPath("/"),
+        redirect: makeFullPath(ROOT),
         caseSensitive: false,
         needAuthenticating: false
     },
     {
-        path: makeFullPath("*"),
+        path: makeFullPath(STAR),
         element: <NotFoundPage/>,
-        redirect: makeFullPath("/"),
+        redirect: makeFullPath(ROOT),
         caseSensitive: false,
         needAuthenticating: false
     }

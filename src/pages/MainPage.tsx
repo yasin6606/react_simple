@@ -1,5 +1,6 @@
 import React, {JSX} from "react";
 import {Link, Outlet, useLocation} from "react-router-dom";
+import {ROOT} from "../routes/routes.list";
 
 const MainPage = (): JSX.Element => {
     const loc = useLocation();
@@ -18,7 +19,7 @@ const MainPage = (): JSX.Element => {
                 </span>
             </div>
             <div className="flex-1">
-                {loc.pathname === "/" ? <>Main</> : <Outlet/>}
+                {loc.pathname === ROOT ? <>Main</> : <Outlet/>}
             </div>
             <div>footer</div>
         </div>

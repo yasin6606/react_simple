@@ -3,6 +3,7 @@ import AxiosReq from "../../utils/apis";
 import {IRegInputs, IRegUser} from "../../assets/interfaces/register.interface";
 import BtnGreen from "../../components/buttons/BtnGreen";
 import {useNavigate} from "react-router-dom";
+import {LOGIN} from "../../routes/routes.list";
 
 const Register = (): JSX.Element => {
 
@@ -25,7 +26,7 @@ const Register = (): JSX.Element => {
             setSuccessReg(1);
 
             setTimeout(() => {
-                navigate("/login");
+                navigate(LOGIN);
             }, 3000);
         } catch (error) {
             setSuccessReg(2);
