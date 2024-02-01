@@ -5,7 +5,7 @@ class ServerRequest {
     private SERVER_ADDRESS: string = "http://172.20.10.4:5000/api/v1";
     private headers = {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("userToken")
+        Authorization: sessionStorage.getItem("userToken")
     };
 
     private req = (method: Method, url: string, data?: any): Promise<Axios> => {
