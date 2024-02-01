@@ -1,4 +1,4 @@
-import axios, {AxiosHeaders, AxiosRequestConfig, AxiosRequestHeaders, AxiosStatic, Method} from "axios";
+import axios, {Axios, AxiosHeaders, AxiosRequestConfig, AxiosRequestHeaders, AxiosStatic, Method} from "axios";
 import LIST_API from "./list.api";
 
 class ServerRequest {
@@ -8,7 +8,7 @@ class ServerRequest {
         Authorization: localStorage.getItem("userToken")
     };
 
-    private req = (method: Method, url: string, data?: any): Promise<AxiosStatic> => {
+    private req = (method: Method, url: string, data?: any): Promise<Axios> => {
         const reqConf: AxiosRequestConfig = {
             baseURL: this.SERVER_ADDRESS,
             url,
@@ -20,15 +20,15 @@ class ServerRequest {
         return axios(reqConf);
     }
 
-    public registerUser = (data: any): Promise<AxiosStatic> => {
+    public registerUser = (data: any): Promise<Axios> => {
         return this.req("POST", LIST_API.REGISTER, data);
     }
 
-    public loginToken = (): Promise<AxiosStatic> => {
-        return this.req("POST", LIST_API.GET_TOKEN);
+    public loginToken = (data: any): Promise<Axios> => {
+        return this.req("POST", LIST_API.GET_TOKEN, data);
     }
 
-    public userInfo = (): Promise<AxiosStatic> => {
+    public userInfo = (): Promise<Axios> => {
         return this.req("GET", LIST_API.USER_INFO);
     }
 }
