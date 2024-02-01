@@ -2,7 +2,7 @@ import React, {JSX} from "react";
 
 const NotFoundPage = (): JSX.Element => {
     return <>
-        <p>Page not found!</p>
+        <p>Not found page 404</p>
     </>;
 }
 

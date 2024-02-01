@@ -26,7 +26,7 @@ const LoginPage = (): JSX.Element => {
             // @ts-ignore
             sessionStorage.setItem("userToken", userToken.data.userToken);
 
-            navigate("/main");
+            navigate("/user");
         } catch (error) {
             console.error(error);
             sessionStorage.removeItem("userToken");

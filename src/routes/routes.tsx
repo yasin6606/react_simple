@@ -5,6 +5,8 @@ import makeFullPath from "../utils/makeFullPath";
 const MainPage = lazy(() => import("../pages/MainPage"));
 const LoginPage = lazy(() => import("../pages/body/LoginPage"));
 const RegisterPage = lazy(() => import("../pages/body/Register"));
+const UserDashboardPage = lazy(() => import("../pages/body/UserDashboard"));
+const AccessDeniedPage = lazy(() => import("../pages/dist/404"));
 const NotFoundPage = lazy(() => import("../pages/dist/NotFoundPage"));
 
 const routeItems: Array<RoutesInterface> = [
@@ -23,11 +25,16 @@ const routeItems: Array<RoutesInterface> = [
                 path: makeFullPath("/register"),
                 element: <RegisterPage/>
             },
+            {
+                path: makeFullPath("/user"),
+                element: <UserDashboardPage/>,
+                needAuthenticating: true
+            }
         ]
     },
     {
-        path: makeFullPath("/test"),
-        element: <div>testing detachment page</div>,
+        path: makeFullPath("/404"),
+        element: <AccessDeniedPage/>,
         redirect: makeFullPath("/"),
         caseSensitive: false,
         needAuthenticating: false
