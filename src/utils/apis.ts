@@ -3,6 +3,7 @@ import LIST_API from "./list.api";
 
 class ServerRequest {
     private SERVER_ADDRESS: string = "http://172.20.10.4:5000/api/v1";
+    // private SERVER_ADDRESS: string = "http://192.168.1.8:5000/api/v1";
     private headers = {
         "Content-Type": "application/json",
         Authorization: sessionStorage.getItem("userToken")

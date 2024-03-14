@@ -1,9 +1,7 @@
 import React, {JSX} from "react";
-import {Link, Outlet, useLocation} from "react-router-dom";
-import {ROOT} from "../routes/routes.list";
+import {Link, Outlet} from "react-router-dom";
 
 const MainPage = (): JSX.Element => {
-    const loc = useLocation();
 
     return <>
         <div className="flex flex-col h-full">
@@ -19,7 +17,7 @@ const MainPage = (): JSX.Element => {
                 </span>
             </div>
             <div className="flex-1">
-                {loc.pathname === ROOT ? <>Main</> : <Outlet/>}
+                <Outlet/>
             </div>
             <div>footer</div>
         </div>

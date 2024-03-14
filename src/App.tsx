@@ -1,14 +1,14 @@
-import React from 'react';
-import {BrowserRouter} from "react-router-dom";
+import React, {Suspense} from 'react';
+import {RouterProvider} from "react-router-dom";
 import Routes from "./routes/routes";
-import RouteSwitch from "./routes/RouteSwitch";
+import Loading from "./pages/dist/Loading";
 
 function App() {
     return (
         <>
-            <BrowserRouter>
-                <RouteSwitch routesList={Routes}/>
-            </BrowserRouter>
+            <Suspense fallback={<Loading/>}>
+                <RouterProvider router={Routes}/>
+            </Suspense>
         </>
     );
 }
