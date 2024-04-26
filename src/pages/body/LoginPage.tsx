@@ -4,6 +4,7 @@ import {IRegInputs, IRegUser} from "../../assets/interfaces/register.interface";
 import BtnGreen from "../../components/buttons/BtnGreen";
 import {Link, useNavigate} from "react-router-dom";
 import {USER} from "../../routes/routes.list";
+import socketIO from "../../connections/socket/SocketIO";
 
 const LoginPage = (): JSX.Element => {
 
@@ -26,6 +27,9 @@ const LoginPage = (): JSX.Element => {
 
             // @ts-ignore
             sessionStorage.setItem("userToken", userToken.data.userToken);
+
+            // Connect to the Socket IO
+            socketIO();
 
             navigate(USER);
         } catch (error) {
